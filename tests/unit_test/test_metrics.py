@@ -53,3 +53,12 @@ def test_ndcg_at_k():
     assert round(ndcg(k=1)(label, score), 2) == 0.33
     assert round(ndcg(k=2)(label, score), 2) == 0.80
     assert round(ndcg(k=3)(label, score), 2) == 0.80
+
+
+def test_recall_at_k():
+    label = [0, 1, 2]
+    score = [0.1, 0.4, 0.2]
+    recall = metrics.Recall
+    assert round(recall(k=1)(label, score), 2) == 0.0
+    assert round(recall(k=2)(label, score), 2) == 0.5
+    assert round(recall(k=3)(label, score), 2) == 1.0
